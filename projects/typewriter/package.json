@@ -1,0 +1,18 @@
+{
+  "name": "angular-typewriter-effect",
+  "version": "0.0.1",
+  "description": "Angular typing effect component",
+  "keywords": [
+    "Angular",
+    "Typewtiter"
+  ],
+  "author": {
+    "name": "Hrishikesh Awari",
+    "email": "hrishiawari@gmail.com"
+  },
+  "license": "ISC",
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  }
+}

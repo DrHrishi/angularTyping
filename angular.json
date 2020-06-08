@@ -120,6 +120,47 @@
           }
         }
       }
-    }},
+    },
+    "typewriter": {
+      "projectType": "library",
+      "root": "projects/typewriter",
+      "sourceRoot": "projects/typewriter/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/typewriter/tsconfig.lib.json",
+            "project": "projects/typewriter/ng-package.json"
+          }
+        },
+        "configurations": {
+          "production": {
+            "project": "projects/typewriter/ng-package.prod.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/typewriter/src/test.ts",
+            "tsConfig": "projects/typewriter/tsconfig.spec.json",
+            "karmaConfig": "projects/typewriter/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/typewriter/tsconfig.lib.json",
+              "projects/typewriter/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "angularTests"
 }

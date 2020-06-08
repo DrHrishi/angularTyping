@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "typewriter": [
+        "dist/typewriter"
+      ],
+      "typewriter/*": [
+        "dist/typewriter/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

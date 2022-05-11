@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 @Component({
   selector: 'ngtypewriter',
   template: `
@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TypewriterComponent implements OnInit {
 
   @Input() StringList: Array<string>;
+  @Output() listEnded = new EventEmitter<any>();
 
   @Input() speed;
   writeText= ''; loopNumber= 0; isDeleting= false;
@@ -34,7 +35,10 @@ export class TypewriterComponent implements OnInit {
       delTime = this.speed || 700;
       this.isDeleting= true
     } else if (this.isDeleting && this.writeText === '') {
-      this.isDeleting= false, this.loopNumber++
+      this.isDeleting = false, this.loopNumber++
+      if (this.StringList.length == this.loopNumber) {
+        this.listEnded.emit();
+      }
       delTime = this.speed || 700;
     }
     setTimeout(async () => await this.writeLine(), delTime);
